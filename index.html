@@ -30,7 +30,7 @@ function c(f,s){
 	if(a < b){s = a; g = b}else{ s = b; g= a; }
 	if(a === b){ return "تماثل\n"+g+"="+s }
 	function q(a,b){ return a / b === Math.floor(a/b) }
-	if(q(g,s)){ return "تداخل\n"+s+'*'+(g/s)+'='+g; }
+	if(q(g,s)){ return "تداخل"+s+" "+g+"کو کاٹ سکتا ہے۔\n"+s+'*'+(g/s)+'='+g; }
 	var max = Math.ceil(s/2), r = [];
 	while(max > 1){
 		if(q(g,max) && q(s,max)){ r.push(max) }
