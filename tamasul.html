@@ -1,0 +1,50 @@
+
+<!--
+Saved from AMPLE
+Mon Sep 13 2021 20:11:35 GMT+0530 (India Standard Time)
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>تماثل ۔ تداخل ۔ توافق ۔ تباین</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+	<div class="c">
+		<h1>تماثل ۔ تداخل ۔ توافق ۔ تباین</h1>
+		<input type="number" id="a" placeholder="عدد">
+		<input type="number" id="b" placeholder="عدد">
+		<button onclick="f()">حساب لگائیں</button>
+		<span id="r">---
+--</span>
+		<span class="n">فیضان احمد محمد ریحان</span>
+	</div>
+</body>
+</html>
+
+<style>
+*{margin: 0;padding: 0;font-family: 'Segoe UI', sans-serif;box-sizing: border-box;}body{height: 100vh;display: flex;justify-content: center;align-items: center;background: #eee;}.c{width: 300px;background: #fff;border: 1px solid #ddd;display: flex;flex-direction: column;padding: 15px;text-align: center;}.c h1{font-size: 20px;font-weight: normal;margin-bottom: 5px;}.c input{padding: 5px;margin: 5px 0;}.c input::placeholder{text-align: right;}.c button{padding: 5px;margin: 5px 0;}#r{white-space: pre;}.n{width: 100%;background: #eee;padding: 2px;color: #777;margin-top: 20px;}
+</style>
+
+<script>
+ $ = el=> document.getElementById(el)
+function c(f,s){
+	a = Math.floor(f);b = Math.floor(s);
+	if(a < 2 || b < 2){return "غلطی\nدو سے کم عدد نہیں ہو سکتا"}
+	if(a < b){s = a; g = b}else{ s = b; g= a; }
+	if(a === b){ return "تماثل\n"+g+"="+s }
+	function q(a,b){ return a / b === Math.floor(a/b) }
+	if(q(g,s)){ return "تداخل\n"+s+'*'+(g/s)+'='+g; }
+	var max = Math.ceil(s/2), r = [];
+	while(max > 1){
+		if(q(g,max) && q(s,max)){ r.push(max) }
+		max--
+	}
+if(r[0				] !== undefined){return "توافق\n"+r[0]+'*'+s/r[0]+'='+s+' & '+r[0]+'*'+g/r[0]+'='+g}
+	return "تباین\n--"
+}
+function f(){
+	$('r').innerHTML = c($('a').value,$('b').value)
+}
+</script>
